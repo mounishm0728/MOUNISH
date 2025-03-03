@@ -1,68 +1,21 @@
-<div align="center">
-  <br />
-    <a href="https://youtu.be/PuOVqP_cjkE?feature=shared" target="_blank">
-      <img src="https://github.com/adrianhajdin/banking/assets/151519281/3c03519c-7ebd-4539-b598-49e63d1770b4" alt="Project Banner">
-    </a>
-  <br />
-  
-  <div>
-    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
-    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-    <img src="https://img.shields.io/badge/-Appwrite-black?style=for-the-badge&logoColor=white&logo=appwrite&color=FD366E" alt="appwrite" />
-  </div>
+# Air-Canvas-project
+Computer vision project implemented with OpenCV
 
-  <h3 align="center">A Fintech Bank Application</h3>
-<div align="left">
-## <a name="introduction">🤖 Introduction</a>
+Ever wanted to draw your imagination by just waiving your finger in air. In this post we will learn to build an Air Canvas which can draw anything on it by just capturing the motion of a coloured marker with camera. Here a coloured object at tip of finger is used as the marker.
 
-Built with Next.js, Horizon is a financial SaaS platform that connects to multiple bank accounts, displays transactions in real-time, allows users to transfer money to other platform users, and manages their finances altogether. 
+We will be using the computer vision techniques of OpenCV to build this project. The preffered language is python due to its exhaustive libraries and easy to use syntax but understanding the basics it can be implemented in any OpenCV supported language.
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+Here Colour Detection and tracking is used in order to achieve the objective. The colour marker in detected and a mask is produced. It includes the further steps of morphological operations on the mask produced which are Erosion and Dilation. Erosion reduces the impurities present in the mask and dilation further restores the eroded main mask.
 
-- Next.js
-- TypeScript
-- Appwrite
-- Plaid
-- Dwolla
-- React Hook Form
-- Zod
-- TailwindCSS
-- Chart.js
-- ShadCN
+# Algorithm
 
-## <a name="features">🔋 Features</a>
+1. Start reading the frames and convert the captured frames to HSV colour space.(Easy for colour detection)
+2. Prepare the canvas frame and put the respective ink buttons on it.
+3. Adjust the trackbar values for finding the mask of coloured marker.
+4. Preprocess the mask with morphological operations.(Erotion and dilation)
+5. Detect the contours, find the center coordinates of largest contour and keep storing them in the array for successive frames .(Arrays for drawing points on canvas)
+6. Finally draw the points stored in array on the frames and canvas .
 
-👉 **Authentication**: An ultra-secure SSR authentication with proper validations and authorization
+Requirements: python3 , numpy , opencv installed on your system.
 
-👉 **Connect Banks**: Integrates with Plaid for multiple bank account linking
 
-👉 **Home Page**: Shows general overview of user account with total balance from all connected banks, recent transactions, money spent on different categories, etc
-
-👉 **My Banks**: Check the complete list of all connected banks with respective balances, account details
-
-👉 **Transaction History**: Includes pagination and filtering options for viewing transaction history of different banks
-
-👉 **Real-time Updates**: Reflects changes across all relevant pages upon connecting new bank accounts.
-
-👉 **Funds Transfer**: Allows users to transfer funds using Dwolla to other accounts with required fields and recipient bank ID.
-
-👉 **Responsiveness**: Ensures the application adapts seamlessly to various screen sizes and devices, providing a consistent user experience across desktop, tablet, and mobile platforms.
-
-and many more, including code architecture and reusability. 
-
-## Installation
-
-To install the project, you can either download the zip file and open that folder in VS code or you can clone the project by running the following command in terminal.
-
-```bash
-  git clone https://github.com/Vikasbhagat84527/Horizon_banking_app.git 
-```
-Once you have cloned the repository/ opened that folder in VS code, run the following commands
-```bash
-npm install
-```
-And finally to start the development server, run
-```bash
-npm run dev
-```
